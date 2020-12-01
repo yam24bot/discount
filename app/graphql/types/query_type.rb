@@ -1,9 +1,12 @@
-Types::QueryType = GraphQL::ObjectType.define do
-  name "Query"
+module Types
+  class QueryType < BaseObject
+    # queries are just represented as fields
+    # `all_links` is automatically camelcased to `allLinks`
+    field :all_links, [LinkType], null: false
 
-  field :rentals, !types[Types::RentalType] do
-    resolve -> (obj, args, ctx) {
-      Rental.all
-    }
+    # this method is invoked, when `all_link` fields is being resolved
+    def all_links
+      Link.all
+    end
   end
 end
