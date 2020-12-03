@@ -16,6 +16,8 @@ gem 'bcrypt', '~> 3.1.13'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'bullet'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -23,7 +25,6 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'bullet'
 end
 
 group :test do
